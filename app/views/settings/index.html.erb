@@ -1,0 +1,10 @@
+<h3>Admin Settings</h3>
+
+<% @settings.each_key do |key| %>
+  <% @setting = Setting.find_by(var: key) || Setting.new(var: key) %>
+  <%= form_for(@setting, url: settings_path(@setting.var), method: 'patch') do |f| %>
+      <%= f.label key, "Change Sign-up Code" %><br />
+      <%= f.text_field :value, autocomplete: "off", id: @setting.var%><br />
+      <%= f.submit "Update", class: "btn btn-default" %>
+  <% end %>
+<% end %>
