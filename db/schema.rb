@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222224447) do
+ActiveRecord::Schema.define(version: 20170224022552) do
+
+  create_table "preference_entries", force: :cascade do |t|
+    t.string   "name"
+    t.text     "comments"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "preference_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "minimum_hours"
+    t.integer  "maximum_hours"
+    t.integer  "daily_hours"
+    t.boolean  "spread_out"
+    t.string   "time_of_week"
+    t.string   "time_of_day"
+    t.integer  "user_id"
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
@@ -39,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170222224447) do
     t.datetime "updated_at",                             null: false
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.integer  "preference_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

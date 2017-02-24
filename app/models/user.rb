@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
      on: :create
    validates :name,
      presence: true
-
+  has_one :preference
 
    def check_code_valid
      errors.add(:sign_up_code, "is incorrect") if sign_up_code.to_s != Setting.sign_up_code.to_s

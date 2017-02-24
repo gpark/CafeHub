@@ -17,6 +17,8 @@
  $navbar-default-link-color: #FFFFFF;
  $navbar-default-link-active-color: #FFC61E;
  $btn-primary-bg: #003F87;
+ $table-cell-padding: 20px;
+ $font-size-base: 14px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -40,4 +42,12 @@ body {
 
 .form-control-wide {
  width: 250px;
+}
+
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+    padding: 3px;
 }

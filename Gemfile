@@ -33,6 +33,8 @@ gem 'cancancan'
 # for caching settings
 gem "rails-settings-cached"
 
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
