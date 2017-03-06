@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'preference/edit'
 
+  post 'preference/change' => 'preference#change'
+
   devise_for :users
   get 'dashboard/home'
 

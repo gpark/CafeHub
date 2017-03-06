@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: preference_entries
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  preference_id :integer
+#  start_time    :integer
+#  end_time      :integer
+#
+
 class PreferenceEntry < ActiveRecord::Base
   belongs_to :preference
 

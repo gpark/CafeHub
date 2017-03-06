@@ -1,0 +1,20 @@
+{ "preference"  : { "minimum_hours" : 8,
+                    "maximum_hours" : 20,
+                    "daily_hours" : 2,
+                    "spread_out" : false,
+                    "time_of_week"  : "Prefer weekdays",
+                    "time_of_day" : "Prefer mornings",
+                    "obl1_expl" : "Church",
+                    "obl2_expl" : "Club Meeting",
+                    "obl3_expl" : "",
+                    "obl4_expl" : "",
+                    "entries" : [
+                                  {"name":"Class","start_time":"M 8:00 AM","end_time":"M 9:00 AM"},
+                                  {"name":"Class","start_time":"W 10:00 AM","end_time":"M 12:00 PM"},
+                                  {"name":"Prefer","start_time":"Tu 8:00 AM","end_time":"Tu 6:00 PM"},
+                                  {"name":"R/N","start_time":"F 10:00 PM","end_time":"Sa 9:00 AM"},
+                                  {"name":"Obligation1","start_time":"Su 8:00 AM","end_time":"S 3:00 PM"},
+                                  {"name":"Obligation2","start_time":"Th 6:00 PM","end_time":"M 8:00 PM"}
+                                ]
+                  }
+}

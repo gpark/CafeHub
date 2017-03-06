@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224022552) do
+ActiveRecord::Schema.define(version: 20170306021250) do
 
   create_table "preference_entries", force: :cascade do |t|
     t.string   "name"
-    t.text     "comments"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "preference_id"
+    t.integer  "start_time"
+    t.integer  "end_time"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -31,6 +32,10 @@ ActiveRecord::Schema.define(version: 20170224022552) do
     t.string   "time_of_week"
     t.string   "time_of_day"
     t.integer  "user_id"
+    t.text     "obl1_expl"
+    t.text     "obl2_expl"
+    t.text     "obl3_expl"
+    t.text     "obl4_expl"
   end
 
   create_table "settings", force: :cascade do |t|
