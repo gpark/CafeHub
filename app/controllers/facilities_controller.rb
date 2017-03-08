@@ -31,8 +31,12 @@ class FacilitiesController < ApplicationController
     end
   end
 
+  def index
+    @facilities = Facility.all
+  end
+
   def facility_params
-     params.require(:facility).permit(:name, :ppl_per_shift, :su_start, :su_end, :m_start, :m_end, :tu_start, :tu_end, :w_start, :w_end, :th_start, :th_end, :f_start, :f_end, :sa_start, :sa_end, :comments)
+     params.require(:facility).permit(:name, :spots, :su_start, :su_end, :m_start, :m_end, :tu_start, :tu_end, :w_start, :w_end, :th_start, :th_end, :f_start, :f_end, :sa_start, :sa_end, :comments)
   end
 
   def find_facility

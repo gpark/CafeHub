@@ -1,0 +1,7 @@
+<h3> Facilities </h3>
+
+<div class="col-md-1">
+<% for facility in @facilities %>
+  <%= link_to(facility.name, facility_path(facility.id), {:class=>"btn btn-default btn-block"}) %>
+<% end %>
+</div>

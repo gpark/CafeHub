@@ -1,6 +1,6 @@
 <h3><%= @facility.name %> </h3>
 
-<h4>Facility Hours</h4>
+<h4>Facility Information</h4>
 <% ["su", "m", "tu", "w", "th", "f", "sa"].each do |day| %>
     <%= day.capitalize %>:
     <% starting = @facility.send(day+"_start") %>
@@ -13,6 +13,7 @@
 <% end %>
 <p></p>
 Need <b><%= @facility.spots %> </b> employee(s) per shift.
-</br>
-Comments: <br>
-<%= @facility.comments %>
+<p><p>
+Comments: <%= @facility.comments %>
+<p><p>
+<%= link_to "Edit Facility", edit_facility_path(@facility.id) %>
