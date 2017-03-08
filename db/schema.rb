@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306021250) do
+ActiveRecord::Schema.define(version: 20170308001356) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.text     "comments"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "user_id"
+    t.integer  "facility_id"
+    t.integer  "assignments_week_id"
+  end
+
+  add_index "assignments", ["assignments_week_id"], name: "index_assignments_on_assignments_week_id"
+  add_index "assignments", ["facility_id"], name: "index_assignments_on_facility_id"
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
+
+  create_table "assignments_weeks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "spots"
+    t.integer  "su_start"
+    t.integer  "su_end"
+    t.integer  "m_start"
+    t.integer  "m_end"
+    t.integer  "tu_start"
+    t.integer  "tu_end"
+    t.integer  "w_start"
+    t.integer  "w_end"
+    t.integer  "th_start"
+    t.integer  "th_end"
+    t.integer  "f_start"
+    t.integer  "f_end"
+    t.integer  "sa_start"
+    t.integer  "sa_end"
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "preference_entries", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +91,17 @@ ActiveRecord::Schema.define(version: 20170306021250) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
+
+  create_table "subs", force: :cascade do |t|
+    t.text     "comments"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "assignments_week_id"
+    t.integer  "assignment_id"
+  end
+
+  add_index "subs", ["assignment_id"], name: "index_subs_on_assignment_id"
+  add_index "subs", ["assignments_week_id"], name: "index_subs_on_assignments_week_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

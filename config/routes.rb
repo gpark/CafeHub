@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'facilities/new'
+
+  get 'facilities/show'
+
+  get 'facilities/edit'
+
+  get 'assignments_weeks/new'
+
+  get 'assignments_weeks/show'
+
+  get 'assignments/new'
+
   get 'preference/view'
 
   get 'preference/new'

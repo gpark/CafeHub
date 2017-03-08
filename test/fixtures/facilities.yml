@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  spots: 1
+  su_start: 1
+  su_end: 1
+  m_start: 1
+  m_end: 1
+  tu_start: 1
+  tu_end: 1
+  w_start: 1
+  w_end: 1
+  th_start: 1
+  th_end: 1
+  f_start: 1
+  f_end: 1
+  sa_start: 1
+  sa_end: 1
+  comments: MyText
+
+two:
+  name: MyString
+  spots: 1
+  su_start: 1
+  su_end: 1
+  m_start: 1
+  m_end: 1
+  tu_start: 1
+  tu_end: 1
+  w_start: 1
+  w_end: 1
+  th_start: 1
+  th_end: 1
+  f_start: 1
+  f_end: 1
+  sa_start: 1
+  sa_end: 1
+  comments: MyText
