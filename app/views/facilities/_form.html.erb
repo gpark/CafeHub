@@ -5,7 +5,7 @@
       <div class="col-md-3"><label>Name:</label></div><%= f.text_field :name %></br>
       </div>
       <div class="row">
-      <div class="col-md-3"><label>Workers per shift:</label></div><%= f.select(:ppl_per_shift, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, {class: "form-control form-control-small"}) %></br>
+      <div class="col-md-3"><label>Workers per shift:</label></div><%= f.select(:spots, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, {class: "form-control form-control-small"}) %></br>
       </div>
       <div class="row">
       <div class="col-md-2"><label>Select Hours</label></div></br>
@@ -31,7 +31,7 @@
       <div class="col-md-2"><label>Saturday: </label></div>
       <%= f.select(:sa_start, @start_times, {}, {class: "form-control form-control-medium", id:"Sa Start Time"}) %>
       <%= f.select(:sa_end, @end_times, {}, {class: "form-control form-control-medium", id:"Sa End Time"}) %> </br>
-      <div class="col-md-2"><label>Comments: </label></div> </br>
+      <div class="col-md-2"><label>Comments: </label></div>
       <%= f.text_area(:comments, size: "30x3") %> </br>
       <span id="helpBlock" class="help-block"> &nbsp; &nbsp; If a facility is closed on a certain day, leave the times unselected</span>
       <%= f.submit "Create", class:"btn btn-default" %>

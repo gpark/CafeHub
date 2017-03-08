@@ -1,2 +1,18 @@
-<h1>Facilities#show</h1>
-<p>Find me in app/views/facilities/show.html.erb</p>
+<h3><%= @facility.name %> </h3>
+
+<h4>Facility Hours</h4>
+<% ["su", "m", "tu", "w", "th", "f", "sa"].each do |day| %>
+    <%= day.capitalize %>:
+    <% starting = @facility.send(day+"_start") %>
+    <% if starting =~ /\d/   %>
+        <%= @facility.send(day+"_start") + " - " + @facility.send(day+"_end") %>
+    <% else %>
+        Closed
+    <% end %>
+    <br>
+<% end %>
+<p></p>
+Need <b><%= @facility.spots %> </b> employee(s) per shift.
+</br>
+Comments: <br>
+<%= @facility.comments %>

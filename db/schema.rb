@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308001356) do
+ActiveRecord::Schema.define(version: 20170308045206) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "start_time"
@@ -37,20 +37,20 @@ ActiveRecord::Schema.define(version: 20170308001356) do
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
     t.integer  "spots"
-    t.integer  "su_start"
-    t.integer  "su_end"
-    t.integer  "m_start"
-    t.integer  "m_end"
-    t.integer  "tu_start"
-    t.integer  "tu_end"
-    t.integer  "w_start"
-    t.integer  "w_end"
-    t.integer  "th_start"
-    t.integer  "th_end"
-    t.integer  "f_start"
-    t.integer  "f_end"
-    t.integer  "sa_start"
-    t.integer  "sa_end"
+    t.string   "su_start"
+    t.string   "su_end"
+    t.string   "m_start"
+    t.string   "m_end"
+    t.string   "tu_start"
+    t.string   "tu_end"
+    t.string   "w_start"
+    t.string   "w_end"
+    t.string   "th_start"
+    t.string   "th_end"
+    t.string   "f_start"
+    t.string   "f_end"
+    t.string   "sa_start"
+    t.string   "sa_end"
     t.text     "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
