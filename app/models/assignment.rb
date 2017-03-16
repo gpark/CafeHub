@@ -14,4 +14,8 @@
 #
 
 class Assignment < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :facility
+  belongs_to :assignments_week
+  has_one :sub  
 end

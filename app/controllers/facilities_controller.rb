@@ -44,7 +44,7 @@ class FacilitiesController < ApplicationController
   end
 
   def initialize_times
-    times = times = Array.new(24.hours / 30.minutes) {|i| [(Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p"), (Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p")]}
+    times = get_all_times
     @start_times = ["Select Start Time"] + times
     @end_times = ["Select End Time"] + times
   end

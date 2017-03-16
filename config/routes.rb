@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :facilities
   resources :assignments
   resources :assignments_weeks
+  resources :subs
 
   get 'preference/view'
 

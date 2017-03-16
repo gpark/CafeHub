@@ -18,9 +18,13 @@ class ApplicationController < ActionController::Base
     ) }
   end
 
+  def get_all_times
+    return Array.new(24.hours / 30.minutes) {|i| [(Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p"), (Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p")]}
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:warning] = exception.message
     redirect_to root_path, alert: flash[:warning]
-  end  
+  end
 
 end

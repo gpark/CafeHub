@@ -1,2 +1,22 @@
-<h1>Assignments#new</h1>
-<p>Find me in app/views/assignments/new.html.erb</p>
+<h3>Create New Assignment</h3>
+<div class="row"><div class="col-md-7">
+<div class="panel panel-default"><div class="panel-body">
+    <%= form_tag("/assignments", method: "post") do %>
+      <%= label_tag "Week of: " %>
+      <%= select_tag :assignments_week_id, options_for_select(@assignments_weeks), {class: "form-control form-control-wide"} %>
+      <%= label_tag "Facility: " %>
+      <%= select_tag :facility_id, options_for_select(@facilities), {class: "form-control form-control-medium"} %>
+      <%= label_tag "Worker: " %>
+      <%= select_tag :user_id, options_for_select(@users), {class: "form-control form-control-medium"} %>
+      <br><br>
+      <%= label_tag "Start Day: " %>
+      <%= select_tag :start_day, options_for_select(@days), {class: "form-control form-control-small"} %>
+      <%= label_tag "Start Time: " %>
+      <%= select_tag :start_time, options_for_select(@times), {class: "form-control form-control-medium", id:"Start Time"} %>
+      <%= label_tag "End Day: " %>
+      <%= select_tag :end_day, options_for_select(@days), {class: "form-control form-control-small"} %>
+      <%= label_tag "End Time: " %>
+      <%= select_tag :end_time, options_for_select(@times), {class: "form-control form-control-medium", id:"End Time"} %>
+      <%= submit_tag("Create", class:"btn btn-default") %>
+    <% end %>
+</div></div></div></div>
