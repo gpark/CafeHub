@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/users/all' => 'users#all'
   post '/users/privileges' => 'users#privileges'
 
+  patch '/subs/take' => 'subs#update'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

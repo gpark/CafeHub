@@ -1,4 +1,5 @@
 class FacilitiesController < ApplicationController
+  authorize_resource
   before_filter :find_facility, only: [:show, :edit, :update]
   before_filter :initialize_times, only: [:new, :edit]
   def new

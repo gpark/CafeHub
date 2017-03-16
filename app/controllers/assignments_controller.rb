@@ -1,4 +1,6 @@
 class AssignmentsController < ApplicationController
+  authorize_resource
+
   def new
       @assignments_weeks = AssignmentsWeek.order(created_at: :desc).collect {|a| [a.to_s, a.id]}
       @users = User.all.collect {|a| [a.name, a.id]}
@@ -19,6 +21,19 @@ class AssignmentsController < ApplicationController
       else
           redirect_to new_assignments_path, alert: "Error creating assignment."
       end
+  end
+
+  def destroy
+    if not current_user.admin?
+      raise CanCan::AccessDenied.new
+    end
+
+    assignment = Assignment.find(params[:assignment_id])
+    user = assignment.user_id
+    week_id = assignment.assignments_week_id
+    assignment.destroy
+    flash[:notice] = "Assignment deleted."
+    redirect_to :controller => 'users', :action => 'assignments', :id => user, :assignments_week_id => week_id
   end
 
 end

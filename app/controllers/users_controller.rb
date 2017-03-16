@@ -6,19 +6,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    if not current_user.admin?
-      raise CanCan::AccessDenied.new
-    end
-
-    assignment = Assignment.find(params[:assignment_id])
-    user = assignment.user_id
-    week_id = assignment.assignments_week_id
-    assignment.destroy
-    flash[:notice] = "Assignment deleted."
-    redirect_to :controller => 'users', :action => 'assignments', :id => user, :assignments_week_id => week_id
-  end
-
   def all
     @users = User.all
     render 'all'

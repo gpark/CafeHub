@@ -1,0 +1,31 @@
+<h3> Current Sub Requests </h3>
+<%= form_tag(subs_path, method: "get") do %>
+    <%= select_tag :chosen_week, options_for_select(@weeks, @chosen_week), {class: "form-control form-control-wide"} %>
+    <%= submit_tag("Select Week", class:"btn btn-default") %>
+<% end %>
+<br>
+<br>
+<table class="table table-bordered">
+  <tr>
+    <th>Time</th>
+    <th>Facility</th>
+    <th>Employee</th>
+    <th>Comments</th>
+    <th class="no-right"></th>
+  </tr>
+
+  <% @subs.each do |p| %>
+  <tr>
+    <td><%= p.assignment.start_time.to_timestring + " - " + p.assignment.end_time.to_timestring %></td>
+    <td><%= p.assignment.facility.name %></td>
+    <td><%= p.assignment.user.name %></td>
+    <td><%= p.comments %></th>
+    <td class="no-right">
+      <%= form_tag("/subs/take", method: "patch") do %>
+        <%= hidden_field_tag "sub_id", p.id %>
+        <%= submit_tag "Take Shift", class:"btn btn-default" %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
