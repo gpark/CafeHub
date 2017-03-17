@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#root'
+
   resources :facilities
   resources :assignments
   resources :assignments_weeks
   resources :subs
 
-  get 'preference/view'
+  namespace :api, defaults: {format: :json} do
+    resource :preference, only: [:new, :edit] do
+      get 'view'
+      post 'change' => 'preference#change'
+    end
+  end
 
-  get 'preference/new'
-
-  get 'preference/edit'
-
-  post 'preference/change' => 'preference#change'
 
   devise_for :users
   get 'dashboard/home'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'dashboard#home'
+  # root to: 'dashboard#home'
 
   get '/settings' => 'settings#index'
   patch '/settings' => 'settings#update'
