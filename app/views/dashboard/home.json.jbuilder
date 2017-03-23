@@ -1,0 +1,2 @@
+json.dashboard do
+end

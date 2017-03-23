@@ -54,5 +54,5 @@ class SubsController < ApplicationController
       redirect_to subs_path, alert: "There was an error in taking the sub."
     end
   end
-
+  
 end
