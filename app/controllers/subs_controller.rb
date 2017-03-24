@@ -27,11 +27,7 @@ class SubsController < ApplicationController
 
   def index
     @weeks = AssignmentsWeek.order(created_at: :desc).map{|item| [item.to_s, item.id]}
-    if params.key?(:chosen_week)
-      @chosen_week = params[:chosen_week]
-    else
-      @chosen_week = @weeks[0][1]
-    end
+    @chosen_week = get_chosen_week(@weeks, params)
     @subs = Sub.where({assignments_week_id: @chosen_week})
   end
 
@@ -54,5 +50,5 @@ class SubsController < ApplicationController
       redirect_to subs_path, alert: "There was an error in taking the sub."
     end
   end
-  
+
 end
