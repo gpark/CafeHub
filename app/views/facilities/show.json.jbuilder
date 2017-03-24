@@ -18,5 +18,11 @@ json.facility do
     json.sa_end @facility.sa_end
     json.comments @facility.comments
 
-end
+    json.assignments @assignments do |assignment|
+      json.start_time assignment.start_time.to_timestring
+      json.end_time assignment.end_time.to_timestring
+      json.employee assignment.user.name
+      json.comments assignment.comments
+    end
 
+end

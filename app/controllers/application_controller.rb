@@ -22,6 +22,18 @@ class ApplicationController < ActionController::Base
     return Array.new(24.hours / 30.minutes) {|i| [(Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p"), (Time.now.midnight + (i*30.minutes)).strftime("%I:%M %p")]}
   end
 
+  def get_chosen_week(weeks, params)
+    if params.key?(:assignments_week_id)
+      return params[:assignments_week_id]
+    else
+      if weeks.length > 0
+        return weeks[0][1]
+      else
+        return 0
+      end
+    end
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:warning] = exception.message
     redirect_to root_path, alert: flash[:warning]
