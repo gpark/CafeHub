@@ -17,7 +17,7 @@ class FacilitiesController < ApplicationController
 
   def show
       @weeks = AssignmentsWeek.order(created_at: :desc).map{|item| [item.to_s, item.id]}
-      @chosen_week = get_chosen_week(@weeks, params) #this sees if :assignments_week_id is in the params, otherwise chooses the latest week
+      @chosen_week = get_chosen_week(@weeks, params)
       @assignments = @facility.assignments.where({assignments_week_id: @chosen_week})
   end
 

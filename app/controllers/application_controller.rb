@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_chosen_week(weeks, params)
+    #this sees if :assignments_week_id is in the params, otherwise chooses the latest week
     if params.key?(:assignments_week_id)
       return params[:assignments_week_id]
     else

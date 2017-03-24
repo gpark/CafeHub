@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     render 'all'
   end
 
+  def assignments
+    @weeks = AssignmentsWeek.order(created_at: :desc).map{|item| [item.to_s, item.id]}
+    @chosen_week = get_chosen_week(@weeks, params)
+    @assignments = User.find(params[:id]).assignments.where({assignments_week_id: @chosen_week})
+  end
+
   def privileges
     if not current_user.admin?
       raise CanCan::AccessDenied.new
