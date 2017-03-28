@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   patch '/subs/take' => 'subs#update'
 
+  get '/user/:id/assignments' => 'users#assignments'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

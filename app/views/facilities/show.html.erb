@@ -17,3 +17,13 @@ Need <b><%= @facility.spots %> </b> employee(s) per shift.
 Comments: <%= @facility.comments %>
 <p><p>
 <%= link_to "Edit Facility", edit_facility_path(@facility.id) %>
+
+<p><p>
+<h4>Assignments for the Week of <%= AssignmentsWeek.find(@chosen_week).to_s %></h4>
+<%= form_tag(facility_path(@facility.id), method: "get") do %>
+    <%= select_tag :assignments_week_id, options_for_select(@weeks, @chosen_week), {class: "form-control form-control-wide"} %>
+    <%= submit_tag("Select Week", class:"btn btn-default") %>
+<% end %>
+<% @assignments.each do |assignment| %>
+  <%= assignment.start_time.to_timestring + " - " + assignment.end_time.to_timestring + ": " + assignment.user.name %><br>
+<% end %>

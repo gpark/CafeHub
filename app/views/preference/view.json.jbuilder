@@ -1,5 +1,5 @@
 json.preference do
-  
+
   json.minimum_hours @preference.minimum_hours
   json.maximum_hours @preference.maximum_hours
   json.daily_hours @preference.daily_hours
