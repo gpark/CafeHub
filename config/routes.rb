@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  # routes to refactor
   devise_for :users
   get 'dashboard/home'
 
@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   patch '/subs/take' => 'subs#update'
 
   get '/user/:id/assignments' => 'users#assignments'
+
+  get '*path', to: 'static_pages#root'
 end
