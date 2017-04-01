@@ -13,23 +13,23 @@ Rails.application.routes.draw do
     end
 
     scope :auth do
-      get 'is_signed_in', to: 'auth#is_signed_in'
+      get 'is_signed_in', to: 'auth#is_signed_in?'
     end
   end
 
   # routes to refactor
-  devise_for :users
-  get 'dashboard/home'
-
-  get '/settings' => 'settings#index'
-  patch '/settings' => 'settings#update'
-
-  get '/users/all' => 'users#all'
-  post '/users/privileges' => 'users#privileges'
-
-  patch '/subs/take' => 'subs#update'
-
-  get '/user/:id/assignments' => 'users#assignments'
+  # devise_for :users
+  # get 'dashboard/home'
+  #
+  # get '/settings' => 'settings#index'
+  # patch '/settings' => 'settings#update'
+  #
+  # get '/users/all' => 'users#all'
+  # post '/users/privileges' => 'users#privileges'
+  #
+  # patch '/subs/take' => 'subs#update'
+  #
+  # get '/user/:id/assignments' => 'users#assignments'
 
   get '*path', to: 'static_pages#root'
 end
