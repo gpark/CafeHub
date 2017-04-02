@@ -13,6 +13,6 @@
 
 # RailsSettings Model
 class Setting < RailsSettings::Base
-  source Rails.root.join("config/app.yml")
+  source Rails.root.join("config/application.yml")
   namespace Rails.env
 end

@@ -36,6 +36,8 @@ gem "rails-settings-cached"
 gem 'simple_form'
 
 gem 'annotate'
+gem 'jwt'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

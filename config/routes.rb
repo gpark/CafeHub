@@ -11,11 +11,12 @@ Rails.application.routes.draw do
       get 'view'
       post 'change' => 'preference#change'
     end
-
-    scope :auth do
-      get 'is_signed_in', to: 'auth#is_signed_in?'
-    end
   end
+
+  devise_for :users, :controllers => {
+    sessions: 'api/sessions',
+    registrations: 'api/registrations'
+  }
 
   # routes to refactor
   # devise_for :users
