@@ -3,12 +3,20 @@ class Api::RegistrationsController < Api::BaseController
 
   def create
     @user = User.new(user_params)
-    @auth_token = jwt_token(email: @user.email) if @user.save
+    @auth_token = jwt_token(@user) if @user.save
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :provider, :uid, :name)
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation,
+      :sign_up_code,
+      :provider,
+      :uid
+    )
   end
 end
