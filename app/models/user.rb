@@ -43,4 +43,14 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
+
+  def hours_assigned(week)
+    total_hours = 0
+    self.assignments.where(assignments_week_id: week).each do |a|
+      hours = a.end_time - a.start_time
+      total_hours += hours
+    end
+    return total_hours
+  end
+
 end
