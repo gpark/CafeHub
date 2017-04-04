@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import HeaderContainer from './layout/header/header_container';
+import FooterContainer from './layout/footer/footer_container';
 
 class App extends Component {
   constructor(props) {
@@ -8,8 +10,15 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-        <h1>App</h1>
+      <div className="app-container">
+        <HeaderContainer />
+        <div className="app-body">
+          <div className="app-content">
+            App
+            { this.props.children }
+          </div>
+        </div>
+        <FooterContainer />
       </div>
     );
   }
