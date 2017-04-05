@@ -1,3 +1,4 @@
+// returns a session token with user info
 export const login = (user) => {
   return $.ajax({
     method: 'POST',
@@ -6,6 +7,7 @@ export const login = (user) => {
   });
 };
 
+// returns a session token with user info
 export const signup = (user) => {
   return $.ajax({
     method: 'POST',
@@ -14,6 +16,7 @@ export const signup = (user) => {
   });
 };
 
+// handle logout
 export const logout = () => {
   return $.ajax({
     method: 'DELETE',

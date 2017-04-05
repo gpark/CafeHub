@@ -1,12 +1,17 @@
 class Api::SessionsController < Api::BaseController
-  skip_before_filter :authenticate_user_from_token!
-  before_filter :ensure_params_exist
+  skip_before_action :authenticate_user_from_token!
+  before_action :ensure_params_exist, except: [:destroy]
 
   def create
     @user = User.find_for_database_authentication(email: user_params[:email])
     return invalid_login_attempt unless @user
     return invalid_login_attempt unless @user.valid_password?(user_params[:password])
-    @auth_token = jwt_token({ email: @user.email})
+    @auth_token = jwt_token(@user)
+  end
+
+  def destroy
+    @user = nil
+    @auth_token = nil
   end
 
   private
