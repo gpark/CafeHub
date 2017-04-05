@@ -14,7 +14,6 @@ class App extends Component {
         <HeaderContainer />
         <div className="app-body">
           <div className="app-content">
-            App
             { this.props.children }
           </div>
         </div>
