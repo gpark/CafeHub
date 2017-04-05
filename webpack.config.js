@@ -19,6 +19,10 @@ module.exports = {
     }, {
       test: /\.png$/,
       loader: "url-loader?mimetype=image/png"
+    },
+    {
+      test: /\.css$/,
+      loader: "style-loader!css-loader"
     }]
   },
   devtool: 'source-map',

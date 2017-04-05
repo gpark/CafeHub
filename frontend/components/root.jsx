@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './app';
 import NotFound from './404';
+import PreferenceContainer from './preference/preference_container';
 
 class Root extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <Router history={browserHistory}>
           <Route path="/" component={App}>
+            <Route path="preference" component={PreferenceContainer}/>
             <Route path="*" component={NotFound}/>
           </Route>
         </Router>
