@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, hashHistory, withRouter } from 'react-router';
+import { Link, browserHistory, withRouter } from 'react-router';
 
 class Header extends Component {
   constructor(props) {
