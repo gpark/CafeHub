@@ -13,6 +13,16 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
+
+  redirectIfLoggedIn() {
+    if (this.props.currentUser) {
+      this.props.router.push("/preference");
+    }
+  }
+
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }

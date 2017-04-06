@@ -26,7 +26,7 @@ class Root extends Component {
   _redirectIfLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (currentUser) {
-      replace('/dashboard');
+      replace('/preference');
     }
   }
 
@@ -35,10 +35,9 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <Router history={browserHistory}>
           <Route path="/" component={App}>
-            <IndexRoute component={LoginContainer}/>
-            <Route path="login" component={LoginContainer}/>
-            <Route path="signup" component={SignupContainer}/>
-            <Route path="preference" component={PreferenceContainer}/>
+            <Route path="login" component={LoginContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="signup" component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="preference" component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="*" component={NotFound}/>
           </Route>
         </Router>
