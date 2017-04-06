@@ -4,8 +4,13 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './app';
 import NotFound from './404';
-import LoginContainer from './user/login/login_container';
+
+// Session views
 import SignupContainer from './user/signup/signup_container';
+import LoginContainer from './user/login/login_container';
+import LogoutContainer from './user/logout/logout_container';
+
+// Preference views
 import PreferenceContainer from './preference/preference_container';
 
 class Root extends Component {
@@ -19,7 +24,7 @@ class Root extends Component {
   _ensureLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/signup');
+      replace('/login');
     }
   }
 
@@ -35,8 +40,9 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <Router history={browserHistory}>
           <Route path="/" component={App}>
-            <Route path="login" component={LoginContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="signup" component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="login" component={LoginContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="logout" component={LogoutContainer}/>
             <Route path="preference" component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="*" component={NotFound}/>
           </Route>

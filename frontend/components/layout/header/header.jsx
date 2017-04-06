@@ -4,16 +4,13 @@ import { Link, browserHistory, withRouter } from 'react-router';
 class Header extends Component {
   constructor(props) {
     super(props);
-
-    const { currentUser, logout } = this.props;
   }
 
   renderLinks() {
     if (this.props.currentUser) {
       return(
         <ul className="nav navbar-nav navbar-right">
-          <li><Link to="/signup">Sign up</Link></li>
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/logout">Logout</Link></li>
         </ul>
       )
     } else {
