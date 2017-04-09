@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, browserHistory } from 'react-router';
 import { merge } from 'lodash';
 
 class Signup extends Component {
@@ -22,7 +22,7 @@ class Signup extends Component {
 
   redirectIfLoggedIn() {
     if (this.props.currentUser) {
-      this.props.router.push("/preference");
+      browserHistory.push('/');
     }
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter, browserHistory } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class NotFound extends React.Component {
   constructor(props) {

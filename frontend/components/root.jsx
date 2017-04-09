@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+// History
+import { Router, Route, IndexRoute } from 'react-router';
+
+// Main layouts
 import App from './app';
 import NotFound from './404';
 
@@ -31,19 +34,19 @@ class Root extends Component {
   _redirectIfLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (currentUser) {
-      replace('/preference');
+      replace('/');
     }
   }
 
   render() {
     return(
       <Provider store={this.props.store}>
-        <Router history={browserHistory}>
+        <Router history={this.props.history}>
           <Route path="/" component={App}>
+            <IndexRoute component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="signup" component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="login" component={LoginContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="logout" component={LogoutContainer}/>
-            <Route path="preference" component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="*" component={NotFound}/>
           </Route>
         </Router>

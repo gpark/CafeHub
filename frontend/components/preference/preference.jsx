@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, browserHistory, withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';

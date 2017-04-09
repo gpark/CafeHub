@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory, withRouter } from 'react-router';
+import { withRouter, browserHistory } from 'react-router';
 
 class Logout extends Component {
   constructor(props) {
@@ -7,8 +7,7 @@ class Logout extends Component {
   }
 
   componentWillMount() {
-    this.props.logout();
-    browserHistory.push('/login');
+    this.props.logout().then(() => browserHistory.push('/'));
   }
 
   render() {
