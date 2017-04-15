@@ -13,6 +13,9 @@ import SignupContainer from './user/signup/signup_container';
 import LoginContainer from './user/login/login_container';
 import LogoutContainer from './user/logout/logout_container';
 
+// Home views
+import HomeContainer from './home/home_container';
+
 // Preference views
 import PreferenceContainer from './preference/preference_container';
 
@@ -43,10 +46,11 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <Router history={this.props.history}>
           <Route path="/" component={App}>
-            <IndexRoute component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
+            <IndexRoute component={HomeContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="signup" component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="login" component={LoginContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="logout" component={LogoutContainer}/>
+            <Route path="preference" component={PreferenceContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="*" component={NotFound}/>
           </Route>
         </Router>
