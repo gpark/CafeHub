@@ -12,9 +12,11 @@ const mapStateToProps = ({ session }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: user => dispatch(login(user)).then((response) => {
-      localStorage.setItem('sessionToken', response.currentUser.token);
-    })
+    login: user => dispatch(login(user))
+      .then((response) => {
+        localStorage.setItem('sessionToken', response.currentUser.token);
+      }
+    )
   };
 };
 

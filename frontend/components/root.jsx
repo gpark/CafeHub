@@ -37,10 +37,10 @@ class Root extends Component {
   _ensureLoggedIn(nextState, replace) {
     const token = this.getToken();
     const currentUser = this.props.store.getState().session.currentUser;
-    
+
     if (!token) {
       replace('/login');
-    } else if (!currentUser){
+    } else if (token && !currentUser){
       this.props.store.dispatch(tokenLogin(token));
     }
   }

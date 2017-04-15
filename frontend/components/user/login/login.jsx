@@ -13,16 +13,6 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate() {
-    this.redirectIfLoggedIn();
-  }
-
-  redirectIfLoggedIn() {
-    if (this.props.currentUser) {
-      browserHistory.push('/');
-    }
-  }
-
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
@@ -31,9 +21,7 @@ class Login extends Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.login(user)
-      .then(user => {
-        localStorage.setItem('sessionToken', user.auth_token)
-      });
+      .then(() => browserHistory.push('/'));
   }
 
   renderErrors() {
