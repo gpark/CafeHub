@@ -4,6 +4,9 @@ import { Provider } from 'react-redux';
 // History
 import { Router, Route, IndexRoute } from 'react-router';
 
+// Token login
+import { tokenLogin } from '../actions/session_actions';
+
 // Main layouts
 import App from './app';
 import NotFound from './404';
@@ -27,17 +30,25 @@ class Root extends Component {
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
   }
 
+  getToken() {
+    return localStorage.getItem('sessionToken');
+  }
+
   _ensureLoggedIn(nextState, replace) {
-    const currentUser = this.props.store.getState().session.currentUser;
-    if (!currentUser) {
+    const token = this.getToken();
+    if (!token) {
       replace('/login');
+    } else {
+      this.props.store.dispatch(tokenLogin(token));
     }
   }
 
   _redirectIfLoggedIn(nextState, replace) {
-    const currentUser = this.props.store.getState().session.currentUser;
-    if (currentUser) {
+    const token = this.getToken();
+    if (!token) {
       replace('/');
+    } else {
+      this.props.store.dispatch(tokenLogin(token));
     }
   }
 

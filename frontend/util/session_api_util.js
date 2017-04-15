@@ -7,6 +7,14 @@ export const login = (user) => {
   });
 };
 
+export const tokenLogin = (token) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/users/token_login',
+    data: { session_token: token }
+  });
+}
+
 // returns a session token with user info
 export const signup = (user) => {
   return $.ajax({

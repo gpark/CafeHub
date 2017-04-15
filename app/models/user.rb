@@ -18,6 +18,7 @@
 #  name                   :string
 #  admin                  :boolean          default("f")
 #  preference_id          :integer
+#  session_token          :string
 #
 
 class User < ActiveRecord::Base

@@ -33,6 +33,12 @@ export const login = user => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const tokenLogin = token => dispatch => (
+  APIUtil.tokenLogin(token)
+    .then(user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const logout = () => dispatch => (
   APIUtil.logout().then(user => dispatch(logoutCurrentUser(user)))
 );

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324232755) do
+ActiveRecord::Schema.define(version: 20170415205029) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "start_time"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20170324232755) do
     t.string   "name"
     t.boolean  "admin",                  default: false
     t.integer  "preference_id"
+    t.string   "session_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

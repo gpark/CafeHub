@@ -31,7 +31,7 @@ class Api::BaseController < ActionController::Base
   end
 
   def claims
-    JWT.decode(token_from_request, 'YOURSECRETKEY', true)
+    JWT.decode(token_from_request, Rails.application.secrets.json_web_token_secret, true)
   rescue
     nil
   end

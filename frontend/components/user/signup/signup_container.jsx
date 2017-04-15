@@ -10,7 +10,9 @@ const mapStateToProps = ({ session }) => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    signup: user => dispatch(signup(user))
+    signup: user => dispatch(signup(user)).then((response) => {
+      localStorage.setItem('sessionToken', response.currentUser.token);
+    })
   };
 };
 

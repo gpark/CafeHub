@@ -18,6 +18,7 @@
 #  name                   :string
 #  admin                  :boolean          default("f")
 #  preference_id          :integer
+#  session_token          :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

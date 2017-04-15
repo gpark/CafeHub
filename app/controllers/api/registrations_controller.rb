@@ -3,7 +3,14 @@ class Api::RegistrationsController < Api::BaseController
 
   def create
     @user = User.new(user_params)
-    @auth_token = jwt_token(@user) if @user.save
+    @auth_token = jwt_token(@user)
+    @user.session_token = @auth_token
+    
+    if @user.save
+      render :create
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
   end
 
   private

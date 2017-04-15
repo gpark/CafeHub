@@ -7,7 +7,9 @@ class Logout extends Component {
   }
 
   componentWillMount() {
-    this.props.logout().then(() => browserHistory.push('/'));
+    this.props.logout()
+      .then(() => localStorage.removeItem('sessionToken'))
+      .then(() => browserHistory.push('/'));
   }
 
   render() {

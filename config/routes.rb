@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     registrations: 'api/registrations'
   }
 
+  devise_scope :user do
+    post '/users/token_login', to: 'api/sessions#token_login'
+  end
+
   # routes to refactor
   # devise_for :users
   # get 'dashboard/home'
