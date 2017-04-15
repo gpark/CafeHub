@@ -36,19 +36,24 @@ class Root extends Component {
 
   _ensureLoggedIn(nextState, replace) {
     const token = this.getToken();
+    const currentUser = this.props.store.getState().session.currentUser;
+    
     if (!token) {
       replace('/login');
-    } else {
+    } else if (!currentUser){
       this.props.store.dispatch(tokenLogin(token));
     }
   }
 
   _redirectIfLoggedIn(nextState, replace) {
     const token = this.getToken();
-    if (!token) {
+    const currentUser = this.props.store.getState().session.currentUser;
+
+    if (token && !currentUser) {
+      this.props.store.dispatch(tokenLogin(token))
+        .then(() => replace('/'));
+    } else if (token && currentUser) {
       replace('/');
-    } else {
-      this.props.store.dispatch(tokenLogin(token));
     }
   }
 

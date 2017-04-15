@@ -30,7 +30,10 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.login(user);
+    this.props.login(user)
+      .then(user => {
+        localStorage.setItem('sessionToken', user.auth_token)
+      });
   }
 
   renderErrors() {

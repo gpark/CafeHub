@@ -33,7 +33,8 @@ class Signup extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.signup(user);
+    this.props.signup(user)
+      .then(user => localStorage.setItem('sessionToken', user.auth_token));
   }
 
   renderErrors() {

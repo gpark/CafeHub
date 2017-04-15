@@ -7,6 +7,7 @@ export const login = (user) => {
   });
 };
 
+// if user has a token already, use that to login
 export const tokenLogin = (token) => {
   return $.ajax({
     method: 'POST',
