@@ -9,8 +9,8 @@ class Signup extends Component {
       name: "",
       email: "",
       password: "",
-      passwordConfirmation: "",
-      signUpCode: ""
+      password_confirmation: "",
+      sign_up_code: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,7 @@ class Signup extends Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.signup(user)
-      .then(user => localStorage.setItem('sessionToken', user.auth_token));
+      .then(() => browserHistory.push('/'));
   }
 
   renderErrors() {
@@ -67,15 +67,15 @@ class Signup extends Component {
 
           <input type="password"
             placeholder="password confirmation"
-            value={this.state.passwordConfirmation}
-            onChange={this.update("passwordConfirmation")}
+            value={this.state.password_confirmation}
+            onChange={this.update("password_confirmation")}
             className="form-control"
             aria-describedby="sizing-addon2"/>
 
           <input type="text"
 						placeholder="sign up code"
-						value={this.state.signUpCode}
-						onChange={this.update("signUpCode")}
+						value={this.state.sign_up_code}
+						onChange={this.update("sign_up_code")}
 						className="form-control"
             aria-describedby="sizing-addon2"/>
 
