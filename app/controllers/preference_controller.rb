@@ -1,8 +1,7 @@
 class PreferenceController < ApplicationController
   authorize_resource
-  
-  def edit
 
+  def edit
   end
 
   def view

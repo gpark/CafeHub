@@ -10,6 +10,10 @@ class Header extends Component {
     if (this.props.currentUser) {
       return(
         <ul className="nav navbar-nav navbar-right">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/preference">Preference</Link></li>
+          <li><Link to="/schedule">Schedule</Link></li>
+          <li><Link to="/subs">Subs</Link></li>
           <li><Link to="/logout">Logout</Link></li>
         </ul>
       )
