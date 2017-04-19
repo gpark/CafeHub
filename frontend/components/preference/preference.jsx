@@ -15,6 +15,10 @@ class Preference extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchPreference();
+  }
+
   render() {
     return (
       <div>

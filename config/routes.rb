@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   resources :subs
 
   namespace :api, defaults: {format: :json} do
-    resource :preference, only: [:new, :edit] do
-      get 'view'
-      post 'change' => 'preference#change'
-    end
+    get 'preference/view' => 'preference#view'
+    post 'preference/change' => 'preference#change'
   end
 
   devise_for :users, controllers: {
