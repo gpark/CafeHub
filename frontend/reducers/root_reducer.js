@@ -6,7 +6,7 @@ import PreferenceReducer from './preference_reducer';
 const RootReducer = combineReducers({
   routing: routerReducer,
   session: SessionReducer,
-  preferences: PreferenceReducer
+  preference: PreferenceReducer
 });
 
 export default RootReducer;

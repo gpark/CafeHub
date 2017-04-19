@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import Preference from './preference';
 import { fetchPreferences, setPreferences } from '../../actions/preference_actions';
 
-const mapStateToProps = ({ session }) => ({
-  preference: preferences.userPreference
+const mapStateToProps = ({ preference }) => ({
+  preference: preference.userPreference
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -5,7 +5,7 @@ export const RECEIVE_PREFERENCE_ERRORS = "RECEIVE_PREFERENCE_ERRORS";
 
 // sync functions
 export const receivePreference = preference => ({
-  type: RECEIVE_PREFERENCES,
+  type: RECEIVE_PREFERENCE,
   preference
 });
 

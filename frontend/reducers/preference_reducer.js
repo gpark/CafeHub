@@ -1,5 +1,5 @@
 import {
-  RECEIVE_PREFERENCES,
+  RECEIVE_PREFERENCE,
   RECEIVE_PREFERENCE_ERRORS } from '../actions/preference_actions';
 import merge from 'lodash/merge';
 
